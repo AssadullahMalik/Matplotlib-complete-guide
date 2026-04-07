@@ -1,0 +1,6 @@
+names = ["Ali", "Ahmed", "Sara"]
+marks = [80, 90, 85]
+
+plt.bar(names, marks)
+plt.title("Marks Comparison")
+plt.show()
