@@ -1,0 +1,7 @@
+import numpy as np
+
+data = np.random.randn(1000)
+
+plt.hist(data)
+plt.title("Histogram")
+plt.show()
