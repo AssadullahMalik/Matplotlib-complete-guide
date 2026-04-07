@@ -1,0 +1,51 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load data
+df = pd.read_csv("data.csv")
+
+# Add total marks column
+df["Total"] = df["Math"] + df["Physics"] + df["English"]
+
+# Add average column
+df["Average"] = df["Total"] / 3
+
+print(df)
+
+# 📊 1. Bar Chart - Total Marks
+plt.figure()
+plt.bar(df["Name"], df["Total"])
+plt.title("Total Marks of Students")
+plt.xlabel("Students")
+plt.ylabel("Total Marks")
+plt.show()
+
+# 📈 2. Line Plot - Average Marks
+plt.figure()
+plt.plot(df["Name"], df["Average"], marker='o')
+plt.title("Average Marks")
+plt.xlabel("Students")
+plt.ylabel("Average")
+plt.show()
+
+# 🥧 3. Pie Chart - Math Contribution
+plt.figure()
+plt.pie(df["Math"], labels=df["Name"], autopct="%1.1f%%")
+plt.title("Math Marks Distribution")
+plt.show()
+
+# 📉 4. Histogram - Physics Marks Distribution
+plt.figure()
+plt.hist(df["Physics"])
+plt.title("Physics Marks Distribution")
+plt.xlabel("Marks")
+plt.ylabel("Frequency")
+plt.show()
+
+# 🔵 5. Scatter Plot - Math vs Physics
+plt.figure()
+plt.scatter(df["Math"], df["Physics"])
+plt.title("Math vs Physics")
+plt.xlabel("Math")
+plt.ylabel("Physics")
+plt.show()
